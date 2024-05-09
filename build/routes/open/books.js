@@ -34,9 +34,9 @@ booksRouter.get('/get_all_books', (request, response) => {
         });
     });
 });
-booksRouter.get('/:authors', (request, response) => {
+booksRouter.get('/author/:author', (request, response) => {
     const theQuery = 'SELECT * FROM books WHERE authors = $1';
-    const values = [request.params.authors];
+    const values = [request.params.author];
     console.log(values);
     utilities_1.pool.query(theQuery, values)
         .then((result) => {
@@ -53,7 +53,7 @@ booksRouter.get('/:authors', (request, response) => {
     })
         .catch((error) => {
         //log the error
-        console.error('DB Query error on GET /:get_by_authors');
+        console.error('DB Query error on GET /:get_by_author');
         console.error(error);
         response.status(500).send({
             message: 'server error - contact support',
@@ -71,6 +71,24 @@ booksRouter.get('/get_by_rating', (request, response) => {
     })
         .catch((error) => {
         console.error('DB Query error on GET /book_by_rating');
+        console.error(error);
+        response.status(500).send({
+            message: 'Server error - contact support',
+        });
+    });
+});
+booksRouter.get('/year/:year', (request, response) => {
+    const theQuery = 'SELECT * FROM books WHERE publication_year = $1';
+    const values = [request.params.year];
+    console.log('year= ' + values);
+    utilities_1.pool.query(theQuery, values)
+        .then((result) => {
+        response.send({
+            books: result.rows,
+        });
+    })
+        .catch((error) => {
+        console.error('DB Query error on GET /book_by_year');
         console.error(error);
         response.status(500).send({
             message: 'Server error - contact support',
