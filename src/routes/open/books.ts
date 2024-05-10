@@ -13,7 +13,7 @@ interface IRatings {
     rating_5: number;
 }
 
-booksRouter.get('/get_all_books', (request: Request, response: Response) => {
+booksRouter.get('/books', (request: Request, response: Response) => {
     const theQuery = 'SELECT * FROM books';
     const values = [];
 
