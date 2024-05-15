@@ -145,7 +145,7 @@ booksRouter.delete('/books/delete_by_range/:min/:max', (request, response) => {
 });
 
 /**
- * @api {get} /books/get_by_rating/
+ * @api {get} /books/get_by_isbn/
  * @apiDescription retrieves book information from the database based on ISBN.
  * @apiName GetByISBN
  * @apiGroup Books
