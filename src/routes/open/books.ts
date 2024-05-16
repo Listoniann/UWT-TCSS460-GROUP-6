@@ -48,7 +48,7 @@ booksRouter.get('/books', (request: Request, response: Response) => {
  * @apiName author
  * @apiGroup Books
  *
- * @apiParams author the name of author
+ * @apiParam author the name of author
  *
  * @apiSuccess (Success 201) {String[]} books the aggregate of all books as the following string:
  *      "{<code>isbn13</code>: <code>books isbn13</code>,
@@ -127,7 +127,7 @@ booksRouter.get('/get_by_rating', (request, response) => {
  * @apiName year
  * @apiGroup Books
  *
- * @apiParams year publication year of book
+ * @apiParam year publication year of book
  *
  * @apiSuccess (Success 201) {String[]} books the aggregate of all books as the following string:
  *      "{<code>isbn13</code>: <code>books isbn13</code>,
