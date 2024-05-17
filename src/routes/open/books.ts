@@ -41,11 +41,11 @@ booksRouter.get('/books', (request: Request, response: Response) => {
 });
 
 /**
- * @api {get} /author/:author Request to retrieve author
+ * @api {get} /get_by_author/:author Request to retrieve author
  *
  * @apiDescription Request to retrieve books by author in the DB
  *
- * @apiName author
+ * @apiName get_by_author
  * @apiGroup Books
  *
  * @apiParam author the name of author
@@ -74,7 +74,7 @@ booksRouter.get('/books', (request: Request, response: Response) => {
  * @apiError (404: Author not Found) {string} message "Author not found"
  * @apiError (500: Server Error) {string} message "server error - contact support"
  */
-booksRouter.get('/author/:author', (request, response) => {
+booksRouter.get('/get_by_author/:author', (request, response) => {
     const theQuery = 'SELECT * FROM books WHERE authors = $1';
     const values = [request.params.author];
 
@@ -120,11 +120,11 @@ booksRouter.get('/get_by_rating', (request, response) => {
 });
 
 /**
- * @api {get} /year/:year Request to retrieve year
+ * @api {get} /get_by_year/:year Request to retrieve year
  *
  * @apiDescription Request to retrieve books by year in the DB
  *
- * @apiName year
+ * @apiName get_by_year
  * @apiGroup Books
  *
  * @apiParam year publication year of book
@@ -152,7 +152,7 @@ booksRouter.get('/get_by_rating', (request, response) => {
  * @apiError (404: Year not Found) {string} message "Year not found"
  * @apiError (500: Server Error) {string} message "server error - contact support"
  */
-booksRouter.get('/year/:year', (request, response) => {
+booksRouter.get('/get_by_year/:year', (request, response) => {
     const theQuery = 'SELECT * FROM books WHERE publication_year = $1';
     const values = [request.params.year];
 
