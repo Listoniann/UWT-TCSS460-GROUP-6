@@ -144,6 +144,51 @@ booksRouter.delete('/books/delete_by_range/:min/:max', (request, response) => {
         });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * @api {get} /books/get_by_isbn/
  * @apiDescription retrieves book information from the database based on ISBN.
@@ -221,31 +266,6 @@ booksRouter.post('/create_new_book', (request: Request, response: Response) => {
                     message: 'Server error - contact support',
                 });
             }
-        });
-});
-
-booksRouter.delete('/:isbn13', (request: Request, response: Response) => {
-    const theQuery = 'DELETE FROM books WHERE isbn13 = $1 RETURNING *';
-    const values = [request.params.isbn13];
-
-    pool.query(theQuery, values)
-        .then((result) => {
-            if (result.rowCount == 1) {
-                response.send({
-                    entry: 'Deleted: ' + isbnFormat(result.rows[0]),
-                });
-            } else {
-                response.status(404).send({
-                    message: 'isbn13 not found',
-                });
-            }
-        })
-        .catch((error) => {
-            console.error('DB Query error on DELETE /:isbn13');
-            console.error(error);
-            response.status(500).send({
-                message: 'server error - contact support',
-            });
         });
 });
 
