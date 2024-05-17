@@ -315,7 +315,6 @@ booksRouter.get('/get_by_isbn', (request: Request, response: Response) => {
     const values = [request.query.isbn];
     pool.query(theQuery, values)
         .then((result) => {
-            console.log("FART! Row-Count: " + result.rowCount);
             if (result.rowCount == 1) {
                 response.send({
                     entry: bookFormat(result.rows[0]),
