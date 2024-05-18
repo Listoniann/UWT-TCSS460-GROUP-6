@@ -261,7 +261,7 @@ booksRouter.get('/get_all_books/', (request: Request, response: Response) => {
 });
 
 /**
- * @api {get} /get_by_author/:author Request to retrieve author
+ * @api {get} /books/get_by_author/:author Request to retrieve author
  *
  * @apiDescription Request to retrieve books by author in the DB
  *
@@ -505,7 +505,7 @@ booksRouter.get('/get_by_title', (request: Request, response: Response) => {
 });
 
 /**
- * @api {get} /books/create_new_book/ Create new Book
+ * @api {post} /books/create_new_book/ Create new Book
  * 
  * @apiDescription creates new book entry in database.
  * 
@@ -636,6 +636,8 @@ booksRouter.delete('/delete_by_isbn', (request: Request, response: Response) => 
  * 
  * @apiGroup Books
  * 
+ * 
+ * @apiParam {String} isbn13 the isbn associated with the entry to retrieve
  * @apiSuccess {Object} books containing isbn13, authors, publication year, original title, title, average rating, ratings count, icons.
  * 
  * @apiError (404: No Books Found) {String} message "No books found with that rating."
