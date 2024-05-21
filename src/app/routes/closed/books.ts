@@ -1,6 +1,6 @@
 
 
-import {pool} from "../../core/utilities";
+import {pool} from "../../../core/utilities";
 import express, {NextFunction, Request, Response, Router} from 'express';
 const format = (resultRow) =>
     `{${resultRow.isbn13}}] says: ${resultRow.message}`;

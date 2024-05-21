@@ -1,7 +1,7 @@
 //express is the framework we're going to use to handle requests
 import express, { NextFunction, Request, Response, Router } from 'express';
 //Access the connection to Postgres Database
-import { pool, validationFunctions } from '../../core/utilities';
+import { pool, validationFunctions } from '../../../core/utilities';
 
 const messageRouter: Router = express.Router();
 

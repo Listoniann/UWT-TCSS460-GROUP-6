@@ -7,7 +7,7 @@ import {
     pool,
     validationFunctions,
     credentialingFunctions,
-} from '../../core/utilities';
+} from '../../../core/utilities';
 
 export interface Auth {
     email: string;

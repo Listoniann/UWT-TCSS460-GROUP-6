@@ -1,6 +1,6 @@
 // express is the framework we're going to use to handle requests
 import express, { Request, Response, Router } from 'express';
-import { IJwtRequest } from '../../core/models';
+import { IJwtRequest } from '../../../core/models';
 
 // retrieve the router object from express
 const tokenTestRouter: Router = express.Router();

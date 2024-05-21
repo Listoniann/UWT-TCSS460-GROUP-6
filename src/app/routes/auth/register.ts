@@ -11,7 +11,7 @@ import {
     pool,
     validationFunctions,
     credentialingFunctions,
-} from '../../core/utilities';
+} from '../../../core/utilities';
 
 const isStringProvided = validationFunctions.isStringProvided;
 const isNumberProvided = validationFunctions.isNumberProvided;
