@@ -151,7 +151,7 @@ messageRouter.get('/all', (request: Request, response: Response) => {
     pool.query(theQuery)
         .then((result) => {
             response.send({
-                entries: result.rows.map(format),
+                entries: result.rows,
             });
         })
         .catch((error) => {

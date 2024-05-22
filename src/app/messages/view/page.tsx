@@ -33,6 +33,7 @@ function MessageListItem({
   message: IMessage;
   onDelete: (name: string) => void;
 }) {
+  console.dir(message);
   return (
     <ListItem
       secondaryAction={
@@ -64,7 +65,9 @@ export default function View() {
   React.useEffect(() => {
     fetch("http://localhost:4000/message/all")
       .then((res) => res.json())
-      .then((data) => setMessages(data.entries));
+      .then((data) => {setMessages(data.entries);
+        console.dir(data.entries);
+      });
   }, []);
 
   const handleDelete = (name: string) => {
