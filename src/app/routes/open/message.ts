@@ -38,10 +38,11 @@ function mwValidNameMessageBody(
 ) {
     if (
         isStringProvided(request.body.name) &&
-        isStringProvided(request.body.message)
+        isStringProvided(request.body.msg)
     ) {
         next();
     } else {
+        console.dir(request.body);
         console.error('Missing required information');
         response.status(400).send({
             message:

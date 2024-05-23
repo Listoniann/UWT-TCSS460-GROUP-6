@@ -62,7 +62,7 @@ export default function Send() {
     } else {
       setFormState({});
     }
-
+    console.dir(validateFields.data);
     fetch("http://localhost:4000/message/", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
